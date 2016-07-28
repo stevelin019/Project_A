@@ -8,6 +8,7 @@
 
 #import "LeastViewController.h"
 #import "Least.h"
+#import "RentViewController.h"
 
 @interface LeastViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
@@ -123,7 +124,16 @@ least.text = [ NSString stringWithFormat:@"New Least %lu",(unsigned long)self.le
     
 }
 
-
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    RentViewController *rentVC = segue.destinationViewController;
+    
+    rentVC.delegate = self;
+    
+    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    
+    rentVC.least = self.leasts[indexPath.row];
+    
+}
 
 
 /*

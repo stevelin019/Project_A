@@ -14,6 +14,7 @@
 		FA019D2B1D49AF94004DC77F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA019D291D49AF94004DC77F /* LaunchScreen.storyboard */; };
 		FA019D341D49B076004DC77F /* LeastViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA019D331D49B076004DC77F /* LeastViewController.m */; };
 		FA019D371D49B841004DC77F /* Least.m in Sources */ = {isa = PBXBuildFile; fileRef = FA019D361D49B841004DC77F /* Least.m */; };
+		FA38F85E1D4A356B00F5728F /* RentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA38F85D1D4A356B00F5728F /* RentViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,8 @@
 		FA019D331D49B076004DC77F /* LeastViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeastViewController.m; sourceTree = "<group>"; };
 		FA019D351D49B841004DC77F /* Least.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Least.h; sourceTree = "<group>"; };
 		FA019D361D49B841004DC77F /* Least.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Least.m; sourceTree = "<group>"; };
+		FA38F85C1D4A356B00F5728F /* RentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RentViewController.h; sourceTree = "<group>"; };
+		FA38F85D1D4A356B00F5728F /* RentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RentViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +69,8 @@
 				FA019D241D49AF94004DC77F /* Main.storyboard */,
 				FA019D321D49B076004DC77F /* LeastViewController.h */,
 				FA019D331D49B076004DC77F /* LeastViewController.m */,
+				FA38F85C1D4A356B00F5728F /* RentViewController.h */,
+				FA38F85D1D4A356B00F5728F /* RentViewController.m */,
 				FA019D351D49B841004DC77F /* Least.h */,
 				FA019D361D49B841004DC77F /* Least.m */,
 				FA019D271D49AF94004DC77F /* Assets.xcassets */,
@@ -155,6 +160,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA019D341D49B076004DC77F /* LeastViewController.m in Sources */,
+				FA38F85E1D4A356B00F5728F /* RentViewController.m in Sources */,
 				FA019D201D49AF94004DC77F /* AppDelegate.m in Sources */,
 				FA019D1D1D49AF94004DC77F /* main.m in Sources */,
 				FA019D371D49B841004DC77F /* Least.m in Sources */,
@@ -308,6 +314,7 @@
 				FA019D311D49AF94004DC77F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
