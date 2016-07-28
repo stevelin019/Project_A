@@ -63,7 +63,7 @@ least.text = [ NSString stringWithFormat:@"New Least %lu",(unsigned long)self.le
     
     least.date = [self time];
     [self.leasts insertObject:least atIndex:0];
-//    NSUInteger i = self.leasts.count;
+
     
     [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
