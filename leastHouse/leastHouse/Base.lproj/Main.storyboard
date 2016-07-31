@@ -454,6 +454,20 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="address" destination="oq1-at-1gy" id="5cx-g4-rcg"/>
+                        <outlet property="addressName" destination="GC3-mE-q0s" id="lDM-5T-roI"/>
+                        <outlet property="beginningYear" destination="LRj-hv-TPk" id="QZ8-9j-dUA"/>
+                        <outlet property="dateOfContract" destination="XLa-mH-5S6" id="a78-pO-pww"/>
+                        <outlet property="deadline" destination="ugq-1Q-Zc0" id="xlg-bD-O9o"/>
+                        <outlet property="deadlineYear" destination="bMO-qg-zoQ" id="8CU-KP-p9f"/>
+                        <outlet property="notations" destination="UzI-CC-5Gw" id="Sc7-Om-56C"/>
+                        <outlet property="rent" destination="OM9-XU-xNW" id="8mW-9W-5rk"/>
+                        <outlet property="rentDeposit" destination="WIX-Lo-nRq" id="bAY-nD-42N"/>
+                        <outlet property="renter" destination="fkA-iu-SLg" id="8Er-DZ-VgS"/>
+                        <outlet property="tel" destination="GoR-Rt-lHw" id="OVg-vw-WGn"/>
+                        <outlet property="year" destination="IFx-rw-d1P" id="Lgv-Tm-AIp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WSt-n2-RJY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -9,7 +9,28 @@
 #import <Foundation/Foundation.h>
 
 @interface Least : NSObject
-@property(nonatomic)NSString *text;
-@property(nonatomic)NSString *date;
+
+
+
+@property(nonatomic)NSString *renter;
+@property(nonatomic)NSString *tel;
+@property(nonatomic)NSString *addressName;
+@property(nonatomic)NSString *address;
+@property(nonatomic)NSInteger *year;
+@property(nonatomic)NSString *beginningYear;
+@property(nonatomic)NSString *deadlineYear;
+@property(nonatomic)NSInteger *rent;
+@property(nonatomic)NSInteger *rentDeposit;
+@property(nonatomic)NSInteger *deadline;
+@property(nonatomic)NSString *notations;
+@property(nonatomic)NSString *dateOfContract;
+
+
+
+
+
+
+
+
 
 @end

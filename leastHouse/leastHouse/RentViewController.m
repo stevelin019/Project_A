@@ -10,6 +10,20 @@
 #import "LeastViewController.h"
 
 @interface RentViewController ()
+@property (weak, nonatomic) IBOutlet UITextField *renter;
+@property (weak, nonatomic) IBOutlet UITextField *tel;
+@property (weak, nonatomic) IBOutlet UITextField *addressName;
+@property (weak, nonatomic) IBOutlet UITextField *address;
+@property (weak, nonatomic) IBOutlet UITextField *year;
+@property (weak, nonatomic) IBOutlet UITextField *beginningYear;
+@property (weak, nonatomic) IBOutlet UITextField *deadlineYear;
+@property (weak, nonatomic) IBOutlet UITextField *rent;
+@property (weak, nonatomic) IBOutlet UITextField *rentDeposit;
+@property (weak, nonatomic) IBOutlet UITextField *deadline;
+@property (weak, nonatomic) IBOutlet UITextView *notations;
+@property (weak, nonatomic) IBOutlet UITextField *dateOfContract;
+
+@property(nonatomic)UIDatePicker *datePicker;
 
 @end
 
@@ -22,7 +36,56 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.datePicker = [[UIDatePicker alloc]init];
+    self.datePicker.datePickerMode = UIDatePickerModeDate;
+    self.beginningYear.inputView = self.datePicker;
+    self.deadlineYear.inputView = self.datePicker;
+    self.dateOfContract.inputView = self.datePicker;
+    
+    NSDate *now = [NSDate date];
+    [self.datePicker setDate:now animated:YES];
+    
+    UIToolbar *datePickerToolBar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 44)];
+    UIBarButtonItem *done = [[UIBarButtonItem alloc]initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(dateDone:)];
+    UIBarButtonItem *space = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    datePickerToolBar.items = [NSArray arrayWithObjects:space,done, nil];
+    
+    self.beginningYear.inputAccessoryView = datePickerToolBar;
+    self.deadlineYear.inputAccessoryView = datePickerToolBar;
+    self.dateOfContract.inputAccessoryView = datePickerToolBar;
+
+    
+    [self.beginningYear addTarget:self action:@selector(update:) forControlEvents:UIControlEventEditingDidEnd];
+    [self.deadlineYear addTarget:self action:@selector(update:) forControlEvents:UIControlEventEditingDidEnd];
+     [self.dateOfContract addTarget:self action:@selector(update:) forControlEvents:UIControlEventEditingDidEnd];
+    
 }
+
+
+-(void)update:(UITextField*)text{
+    NSDate *selectDate = [self.datePicker date];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+  
+    formatter.timeZone = [NSTimeZone systemTimeZone];
+    NSString *dataFormat = [NSDateFormatter dateFormatFromTemplate:@"yyyy-MM-dd " options:0 locale:[NSLocale systemLocale]];
+    formatter.dateFormat = dataFormat;
+    
+    text.text = [NSString stringWithFormat:@"%@",[formatter stringFromDate:selectDate]];
+    
+}
+
+-(void)dateDone:(UIDatePicker*)datePicker{
+    
+    
+    [self.beginningYear resignFirstResponder];
+    [self.deadlineYear resignFirstResponder];
+    [self.dateOfContract resignFirstResponder];
+    
+    
+    
+}
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

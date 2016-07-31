@@ -11,9 +11,7 @@
 #import "RentViewController.h"
 
 @interface LeastViewController ()<UITableViewDelegate,UITableViewDataSource>
-{
-    NSInteger i;
-}
+
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic)NSMutableArray *leasts;
 
@@ -60,9 +58,12 @@
 - (IBAction)addLeast:(id)sender {
     
     Least *least = [[Least alloc]init];
-least.text = [ NSString stringWithFormat:@"New Least %lu",(unsigned long)self.leasts.count];
+least.addressName = [ NSString stringWithFormat:@"New Least %lu",(unsigned long)self.leasts.count];
     
-    least.date = [self time];
+    least.beginningYear = [self time];
+    least.deadlineYear = [self time];
+    least.dateOfContract = [self time];
+    
     [self.leasts insertObject:least atIndex:0];
 
     
@@ -117,8 +118,8 @@ least.text = [ NSString stringWithFormat:@"New Least %lu",(unsigned long)self.le
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"subtitle" forIndexPath:indexPath];
     Least *least = [self.leasts objectAtIndex:indexPath.row];
     
-    cell.textLabel.text = least.text;
-    cell.detailTextLabel.text =[NSString stringWithFormat:@"%@~%@",least.text,least.date];
+    cell.textLabel.text = least.addressName;
+    cell.detailTextLabel.text =[NSString stringWithFormat:@"%@~%@",least.beginningYear,least.deadlineYear];
     cell.showsReorderControl = YES;
     return cell;
     
