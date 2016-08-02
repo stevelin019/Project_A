@@ -8,8 +8,11 @@
 
 #import "RentViewController.h"
 #import "LeastViewController.h"
+#import "Least.h"
+@import UIKit;
 
-@interface RentViewController ()
+
+@interface RentViewController ()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *renter;
 @property (weak, nonatomic) IBOutlet UITextField *tel;
 @property (weak, nonatomic) IBOutlet UITextField *addressName;
@@ -33,17 +36,27 @@
 //    [[self.delegate leasts] indexOfObject:self.least];
 }
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+   
+    
+    self.renter.text= self.nowleast.renter;
+    self.year.text = [NSString stringWithFormat:@"%ld", self.nowleast.year];
+    self.rent.text = [NSString stringWithFormat:@"%ld",self.nowleast.rent];
+    self.notations.text = self.nowleast.notations;
     self.datePicker = [[UIDatePicker alloc]init];
     self.datePicker.datePickerMode = UIDatePickerModeDate;
+    self.beginningYear.text= self.nowleast.beginningYear;
     self.beginningYear.inputView = self.datePicker;
     self.deadlineYear.inputView = self.datePicker;
     self.dateOfContract.inputView = self.datePicker;
     
     NSDate *now = [NSDate date];
     [self.datePicker setDate:now animated:YES];
+//    self.datePicker.minimumDate = [NSDate dateWithTimeIntervalSinceNow:0];
+//    self.datePicker.maximumDate = [NSDate dateWithTimeIntervalSinceNow:1820* 24 * 60 * 60];
     
     UIToolbar *datePickerToolBar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 44)];
     UIBarButtonItem *done = [[UIBarButtonItem alloc]initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(dateDone:)];
@@ -84,6 +97,8 @@
     
     
 }
+
+
 
 
 

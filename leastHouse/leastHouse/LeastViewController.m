@@ -58,10 +58,22 @@
 - (IBAction)addLeast:(id)sender {
     
     Least *least = [[Least alloc]init];
-least.addressName = [ NSString stringWithFormat:@"New Least %lu",(unsigned long)self.leasts.count];
-    
+    least.renter = @"1";
+    least.tel = @"09xx-xxx-xxx";
+    least.addressName = [ NSString stringWithFormat:@"New Least %lu",(unsigned long)self.leasts.count];
+    least.address = @"";
+    least.year = 1;
     least.beginningYear = [self time];
     least.deadlineYear = [self time];
+    least.rent = 30000;
+    least.rentDeposit = 60000;
+    least.deadline =5;
+    least.notations = @"oo";
+    least.dateOfContract = [self time];
+    
+    
+    
+    
     least.dateOfContract = [self time];
     
     [self.leasts insertObject:least atIndex:0];
@@ -129,13 +141,17 @@ least.addressName = [ NSString stringWithFormat:@"New Least %lu",(unsigned long)
     RentViewController *rentVC = segue.destinationViewController;
     
     rentVC.delegate = self;
+//    rentVC.transitioningDelegate = self;
     
     NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
     
-    rentVC.least = self.leasts[indexPath.row];
+    rentVC.nowleast = self.leasts[indexPath.row];
     
 }
 
+//-(id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:( UIViewController *)presenting sourceController:( UIViewController *)source{
+//    return [BounceController new];
+//}
 
 /*
 #pragma mark - Navigation

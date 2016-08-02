@@ -16,7 +16,7 @@
 @property(nonatomic)NSString *tel;
 @property(nonatomic)NSString *addressName;
 @property(nonatomic)NSString *address;
-@property(nonatomic)NSInteger *year;
+@property(nonatomic)NSInteger year;
 @property(nonatomic)NSString *beginningYear;
 @property(nonatomic)NSString *deadlineYear;
 @property(nonatomic)NSInteger *rent;

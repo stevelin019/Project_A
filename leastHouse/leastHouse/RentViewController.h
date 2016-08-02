@@ -10,6 +10,6 @@
 #import "Least.h"
 
 @interface RentViewController : UIViewController
-@property (nonatomic) Least *least;
+@property (nonatomic) Least *nowleast;
 @property (nonatomic) id delegate;
 @end
