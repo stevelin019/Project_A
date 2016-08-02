@@ -58,22 +58,17 @@
 - (IBAction)addLeast:(id)sender {
     
     Least *least = [[Least alloc]init];
-    least.renter = @"1";
-    least.tel = @"09xx-xxx-xxx";
+    least.renter = @"";
+    least.tel = @"";
     least.addressName = [ NSString stringWithFormat:@"New Least %lu",(unsigned long)self.leasts.count];
     least.address = @"";
-    least.year = 1;
+//    least.year = 1;
     least.beginningYear = [self time];
     least.deadlineYear = [self time];
-    least.rent = 30000;
-    least.rentDeposit = 60000;
-    least.deadline =5;
-    least.notations = @"oo";
-    least.dateOfContract = [self time];
-    
-    
-    
-    
+//    least.rent = 0;
+//    least.rentDeposit = 0;
+//    least.deadline =0;
+    least.notations = @" ";
     least.dateOfContract = [self time];
     
     [self.leasts insertObject:least atIndex:0];
@@ -145,7 +140,9 @@
     
     NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
     
-    rentVC.nowleast = self.leasts[indexPath.row];
+    Least *least =self.leasts[indexPath.row];
+    
+    rentVC.nowleast = least;
     
 }
 

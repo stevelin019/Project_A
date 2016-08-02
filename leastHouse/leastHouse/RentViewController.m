@@ -33,7 +33,21 @@
 @implementation RentViewController
 - (IBAction)save:(id)sender {
     
-//    [[self.delegate leasts] indexOfObject:self.least];
+    //[[self.delegate leasts] indexOfObject:self.least];
+    self.nowleast.renter = self.renter.text;
+    self.nowleast.tel = self.tel.text;
+    self.nowleast.addressName = self.addressName.text;
+    self.nowleast.address = self.address.text;
+    self.nowleast.year = self.year.text;
+    self.nowleast.beginningYear = self.beginningYear.text;
+    self.nowleast.deadlineYear = self.deadlineYear.text;
+    self.nowleast.rent = self.rent.text;
+    self.nowleast.rentDeposit = self.rentDeposit.text;
+    self.nowleast.deadline = self.deadline.text;
+    self.nowleast.notations = self.notations.text;
+    self.nowleast.dateOfContract = self.dateOfContract.text;
+    
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 
@@ -41,14 +55,19 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
    
-    
     self.renter.text= self.nowleast.renter;
-    self.year.text = [NSString stringWithFormat:@"%ld", self.nowleast.year];
-    self.rent.text = [NSString stringWithFormat:@"%ld",self.nowleast.rent];
+    self.tel.text = self.nowleast.tel;
+    self.addressName.text = self.nowleast.addressName;
+    self.address.text = self.nowleast.address;
+    self.year.text =  self.nowleast.year;
+    self.rent.text = self.nowleast.rent;
+    self.rentDeposit.text = self.nowleast.rentDeposit;
+    self.deadline.text = self.nowleast.deadline;
     self.notations.text = self.nowleast.notations;
+    
     self.datePicker = [[UIDatePicker alloc]init];
     self.datePicker.datePickerMode = UIDatePickerModeDate;
-    self.beginningYear.text= self.nowleast.beginningYear;
+    
     self.beginningYear.inputView = self.datePicker;
     self.deadlineYear.inputView = self.datePicker;
     self.dateOfContract.inputView = self.datePicker;

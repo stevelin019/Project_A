@@ -16,12 +16,12 @@
 @property(nonatomic)NSString *tel;
 @property(nonatomic)NSString *addressName;
 @property(nonatomic)NSString *address;
-@property(nonatomic)NSInteger year;
+@property(nonatomic)NSString *year;
 @property(nonatomic)NSString *beginningYear;
 @property(nonatomic)NSString *deadlineYear;
-@property(nonatomic)NSInteger *rent;
-@property(nonatomic)NSInteger *rentDeposit;
-@property(nonatomic)NSInteger *deadline;
+@property(nonatomic)NSString *rent;
+@property(nonatomic)NSString *rentDeposit;
+@property(nonatomic)NSString *deadline;
 @property(nonatomic)NSString *notations;
 @property(nonatomic)NSString *dateOfContract;
 
