@@ -12,7 +12,10 @@
 @import UIKit;
 
 
-@interface RentViewController ()<UITextFieldDelegate>
+@interface RentViewController ()<UITextFieldDelegate>{
+    UITextField * editingTextField;
+    CGFloat keyboardHeight;
+}
 @property (weak, nonatomic) IBOutlet UITextField *renter;
 @property (weak, nonatomic) IBOutlet UITextField *tel;
 @property (weak, nonatomic) IBOutlet UITextField *addressName;
@@ -23,14 +26,69 @@
 @property (weak, nonatomic) IBOutlet UITextField *rent;
 @property (weak, nonatomic) IBOutlet UITextField *rentDeposit;
 @property (weak, nonatomic) IBOutlet UITextField *deadline;
-@property (weak, nonatomic) IBOutlet UITextView *notations;
+
 @property (weak, nonatomic) IBOutlet UITextField *dateOfContract;
+@property (weak, nonatomic) IBOutlet UITextField *notations;
 
 @property(nonatomic)UIDatePicker *datePicker;
 
 @end
 
 @implementation RentViewController
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+
+{
+    
+    [textField resignFirstResponder];
+    
+    return YES;
+    
+}
+
+
+//輸入框編輯完成以後，將視圖恢復到原始狀態
+
+-(void)textFieldDidEndEditing:(UITextField *)textField
+
+{
+    
+    self.view.frame =CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+    
+}
+
+
+
+//開始編輯輸入框的時候，軟鍵盤出現，執行此事件
+
+-(void)textFieldDidBeginEditing:(UITextField *)textField
+
+{
+    
+
+    if(textField.tag == 99){
+        return;
+    }
+    
+    CGRect frame = self.view.frame;
+    
+    if (keyboardHeight != 0){
+       frame.origin.y -= keyboardHeight;
+    }else{
+        
+        frame.origin.y -= 250;
+    }
+    
+    [UIView animateWithDuration:0.4 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
+        self.view.frame = frame;
+    } completion:nil];
+}
+
+
+
+
+
+
+
 - (IBAction)save:(id)sender {
     
     //[[self.delegate leasts] indexOfObject:self.least];
@@ -54,7 +112,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-   
+    
+
     self.renter.text= self.nowleast.renter;
     self.tel.text = self.nowleast.tel;
     self.addressName.text = self.nowleast.addressName;
@@ -77,7 +136,7 @@
 //    self.datePicker.minimumDate = [NSDate dateWithTimeIntervalSinceNow:0];
 //    self.datePicker.maximumDate = [NSDate dateWithTimeIntervalSinceNow:1820* 24 * 60 * 60];
     
-    UIToolbar *datePickerToolBar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 44)];
+    UIToolbar *datePickerToolBar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 34)];
     UIBarButtonItem *done = [[UIBarButtonItem alloc]initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(dateDone:)];
     UIBarButtonItem *space = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
     datePickerToolBar.items = [NSArray arrayWithObjects:space,done, nil];
@@ -91,8 +150,13 @@
     [self.deadlineYear addTarget:self action:@selector(update:) forControlEvents:UIControlEventEditingDidEnd];
      [self.dateOfContract addTarget:self action:@selector(update:) forControlEvents:UIControlEventEditingDidEnd];
     
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardDidShow:) name:UIKeyboardDidShowNotification object:nil];
 }
 
+-(void)keyboardDidShow:(NSNotification*)notification{
+    keyboardHeight = [[notification.userInfo valueForKey:UIKeyboardFrameBeginUserInfoKey]CGRectValue].size.height;
+    
+}
 
 -(void)update:(UITextField*)text{
     NSDate *selectDate = [self.datePicker date];

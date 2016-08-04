@@ -118,7 +118,7 @@
                                     <barButtonItem title="備份至Dropbox" id="5iv-77-ftH"/>
                                 </items>
                             </toolbar>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8J8-3E-vii">
+                            <view tag="99" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8J8-3E-vii">
                                 <rect key="frame" x="0.0" y="64" width="600" height="492"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="承租人：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LjB-iE-eKZ">
@@ -148,15 +148,6 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fkA-iu-SLg">
-                                        <rect key="frame" x="96" y="8" width="441" height="30"/>
-                                        <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="OAj-fv-Vx3"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="09xx-xxx-xxx" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GoR-Rt-lHw">
                                         <rect key="frame" x="96" y="46" width="441" height="30"/>
                                         <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -164,9 +155,9 @@
                                             <constraint firstAttribute="height" constant="30" id="LkZ-0F-8oX"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Address Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GC3-mE-q0s">
+                                    <textField opaque="NO" clipsSubviews="YES" tag="99" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Address Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GC3-mE-q0s">
                                         <rect key="frame" x="96" y="81" width="441" height="30"/>
                                         <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -174,6 +165,9 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="7U2-qk-hhn" id="Ryq-0e-5jm"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="年/月/日" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LRj-hv-TPk">
                                         <rect key="frame" x="96" y="211" width="441" height="30"/>
@@ -191,13 +185,16 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oq1-at-1gy">
+                                    <textField opaque="NO" clipsSubviews="YES" tag="99" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oq1-at-1gy">
                                         <rect key="frame" x="96" y="119" width="496" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="Td5-bP-gcR"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="7U2-qk-hhn" id="3CX-kg-CzH"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="年/月/日" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XLa-mH-5S6">
                                         <rect key="frame" x="96" y="449" width="447" height="30"/>
@@ -279,7 +276,10 @@
                                                     <constraint firstAttribute="width" constant="76" id="1he-zK-5qm"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="7U2-qk-hhn" id="pMu-4c-fpo"/>
+                                                </connections>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="押金：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E38-aT-ZHE">
                                                 <rect key="frame" x="93" y="6" width="51" height="21"/>
@@ -294,7 +294,10 @@
                                                 <rect key="frame" x="146" y="0.0" width="367" height="30"/>
                                                 <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="7U2-qk-hhn" id="U7O-r0-3ID"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -328,7 +331,10 @@
                                                     <constraint firstAttribute="width" constant="44" id="bLG-bA-k2H"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="7U2-qk-hhn" id="9gt-sC-XMp"/>
+                                                </connections>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="日以前,完成繳納" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vaL-Va-a5f">
                                                 <rect key="frame" x="55" y="4" width="386" height="17"/>
@@ -359,23 +365,39 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nqm-UF-sRR">
                                         <rect key="frame" x="96" y="377" width="496" height="55"/>
                                         <subviews>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="UzI-CC-5Gw">
-                                                <rect key="frame" x="0.0" y="0.0" width="496" height="52"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="V0b-ob-63D">
+                                                <rect key="frame" x="0.0" y="13" width="496" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="T8f-xY-QsF"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                            </textView>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="7U2-qk-hhn" id="7p3-Ly-RSd"/>
+                                                </connections>
+                                            </textField>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="UzI-CC-5Gw" secondAttribute="bottom" constant="3" id="BEO-JQ-aJ9"/>
+                                            <constraint firstItem="V0b-ob-63D" firstAttribute="leading" secondItem="Nqm-UF-sRR" secondAttribute="leading" id="8cW-iC-Vl6"/>
                                             <constraint firstAttribute="height" constant="55" id="JAl-0y-hFZ"/>
-                                            <constraint firstAttribute="trailing" secondItem="UzI-CC-5Gw" secondAttribute="trailing" id="Ufz-sg-27x"/>
-                                            <constraint firstItem="UzI-CC-5Gw" firstAttribute="leading" secondItem="Nqm-UF-sRR" secondAttribute="leading" id="UpU-QJ-ONX"/>
-                                            <constraint firstItem="UzI-CC-5Gw" firstAttribute="top" secondItem="Nqm-UF-sRR" secondAttribute="top" id="mLn-kP-HVN"/>
+                                            <constraint firstAttribute="bottom" secondItem="V0b-ob-63D" secondAttribute="bottom" constant="12" id="YpN-bK-erI"/>
+                                            <constraint firstItem="V0b-ob-63D" firstAttribute="top" secondItem="Nqm-UF-sRR" secondAttribute="top" constant="13" id="o0N-Kf-5BP"/>
+                                            <constraint firstAttribute="trailing" secondItem="V0b-ob-63D" secondAttribute="trailing" id="rv3-ww-uOl"/>
                                         </constraints>
                                     </view>
+                                    <textField opaque="NO" clipsSubviews="YES" tag="99" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fkA-iu-SLg">
+                                        <rect key="frame" x="96" y="8" width="441" height="30"/>
+                                        <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="OAj-fv-Vx3"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="7U2-qk-hhn" id="pOb-mm-DtQ"/>
+                                        </connections>
+                                    </textField>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -458,10 +480,10 @@
                         <outlet property="address" destination="oq1-at-1gy" id="5cx-g4-rcg"/>
                         <outlet property="addressName" destination="GC3-mE-q0s" id="lDM-5T-roI"/>
                         <outlet property="beginningYear" destination="LRj-hv-TPk" id="QZ8-9j-dUA"/>
-                        <outlet property="dateOfContract" destination="XLa-mH-5S6" id="a78-pO-pww"/>
+                        <outlet property="dateOfContract" destination="XLa-mH-5S6" id="U9J-w0-N1a"/>
                         <outlet property="deadline" destination="ugq-1Q-Zc0" id="xlg-bD-O9o"/>
                         <outlet property="deadlineYear" destination="bMO-qg-zoQ" id="8CU-KP-p9f"/>
-                        <outlet property="notations" destination="UzI-CC-5Gw" id="Sc7-Om-56C"/>
+                        <outlet property="notations" destination="V0b-ob-63D" id="A7y-zu-ALr"/>
                         <outlet property="rent" destination="OM9-XU-xNW" id="8mW-9W-5rk"/>
                         <outlet property="rentDeposit" destination="WIX-Lo-nRq" id="bAY-nD-42N"/>
                         <outlet property="renter" destination="fkA-iu-SLg" id="8Er-DZ-VgS"/>
